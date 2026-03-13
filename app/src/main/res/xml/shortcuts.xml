@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="wol_send"
+        android:enabled="true"
+        android:shortcutShortLabel="@string/shortcut_wol"
+        android:shortcutLongLabel="@string/shortcut_wol">
+        <intent
+            android:action="com.wol.app.SEND_WOL"
+            android:targetPackage="com.wol.app"
+            android:targetClass="com.wol.app.MainActivity" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="shutdown"
+        android:enabled="true"
+        android:shortcutShortLabel="@string/shortcut_shutdown"
+        android:shortcutLongLabel="@string/shortcut_shutdown">
+        <intent
+            android:action="com.wol.app.SHUTDOWN"
+            android:targetPackage="com.wol.app"
+            android:targetClass="com.wol.app.MainActivity" />
+    </shortcut>
+</shortcuts>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardPcStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        app:strokeWidth="0dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="20dp"
+            android:background="#F5F5F5">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WOLmate"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#333333" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ProgressBar
+                android:id="@+id/progressStatus"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:visibility="visible"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/tvPcStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="확인 중..."
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#888888" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- API 키 (끄기/취소에 필요) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="API 키 (끄기/취소)"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginBottom="12dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etApiKey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- PC IP (상태확인/끄기/취소에 필요) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="PC IP (상태확인/끄기/취소)"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginBottom="12dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPcIp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:text="192.168.0.10"
+            android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- MAC 주소 (켜기에 필요) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="MAC 주소 (켜기)"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginBottom="12dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etMacAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:text="AA:BB:CC:DD:EE:FF"
+            android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- WOL 포트 (켜기에 필요) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="WOL 포트 (켜기)"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginBottom="32dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:text="9"
+            android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 저장 버튼 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="설정 저장"
+        android:textSize="16sp"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_marginBottom="12dp" />
+
+    <!-- 버튼 가로 배치 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+        <!-- WOL 전송 버튼 -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSendWol"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="64dp"
+            android:text="PC 켜기"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="6dp" />
+
+        <!-- PC 끄기 버튼 -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnShutdown"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="64dp"
+            android:text="PC 끄기"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:backgroundTint="#D32F2F"
+            android:layout_marginStart="6dp" />
+    </LinearLayout>
+
+    <!-- 종료 취소 버튼 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCancelShutdown"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="종료 취소"
+        android:textSize="16sp"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 종료 딜레이 (초) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="종료 딜레이 (초)"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginBottom="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etShutdownDelay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 상태확인 주기 (초) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="상태확인 주기 (초)"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginBottom="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPingInterval"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 종료 알림 토글 -->
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switchSilentShutdown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="종료 알림 없이 즉시 종료"
+        android:textSize="14sp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 상태 표시 -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ProgressBar
+            android:id="@+id/progressPing"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:visibility="gone"
+            android:layout_marginEnd="8dp" />
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="14sp"
+            android:textColor="#888888" />
+    </LinearLayout>
+
+</LinearLayout>
+</ScrollView>

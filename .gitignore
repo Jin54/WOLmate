@@ -1,0 +1,23 @@
+# Gradle
+.gradle/
+build/
+local.properties
+
+# Android
+app/build/
+
+# Build outputs
+output/
+
+# PyInstaller
+shutdown-server/build/
+shutdown-server/dist/
+shutdown-server/*.spec
+
+# IDE
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db

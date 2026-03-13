@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">WOLmate</string>
+    <string name="shortcut_wol">PC 켜기</string>
+    <string name="shortcut_shutdown">PC 끄기</string>
+</resources>

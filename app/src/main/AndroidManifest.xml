@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.WOLApp">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- 빅스비 루틴에서 호출 가능하도록 -->
+            <intent-filter>
+                <action android:name="com.wol.app.SEND_WOL" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.wol.app.SHUTDOWN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 빅스비/Shortcut에서 바로 WOL/종료 전송하는 리시버 -->
+        <receiver
+            android:name=".WolReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.wol.app.SEND_WOL" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.wol.app.SHUTDOWN" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 바로가기(Shortcut) 정의 -->
+        <meta-data
+            android:name="android.app.shortcuts"
+            android:resource="@xml/shortcuts" />
+
+    </application>
+
+</manifest>
