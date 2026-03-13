@@ -84,7 +84,7 @@ def save_api_key(key):
 
 
 def generate_api_key():
-    return uuid.uuid4().hex[:16]
+    return uuid.uuid4().hex[:8]
 
 
 def get_all_adapters():
